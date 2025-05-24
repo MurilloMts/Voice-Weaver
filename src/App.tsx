@@ -97,6 +97,11 @@ function App() {
     doc.save('texto-para-fala.pdf');
   };
 
+  const handleSave = () => {
+    localStorage.setItem('savedText', text);
+    alert('Texto salvo!');
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-700 py-6 flex flex-col justify-center sm:py-12">
       <div className="relative py-3 sm:max-w-xl sm:mx-auto">
@@ -150,39 +155,45 @@ function App() {
                   {!isPlaying ? (
                     <button
                       onClick={speak}
-                      className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+                      className="bg-black-gold-700 hover:bg-black-gold-900 text-white font-bold py-1 px-2 rounded text-sm"
                     >
-                      <Lucide.Play size={20} className="inline-block mr-2" />
+                      <Lucide.Play size={16} className="inline-block mr-1" />
                       Reproduzir
                     </button>
                   ) : (
                     <>
                       <button
                         onClick={pause}
-                        className="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded"
+                        className="bg-black-gold-700 hover:bg-black-gold-900 text-white font-bold py-1 px-2 rounded text-sm mr-1"
                       >
                         Pausar
                       </button>
                       <button
                         onClick={resume}
-                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                        className="bg-black-gold-700 hover:bg-black-gold-900 text-white font-bold py-1 px-2 rounded text-sm mr-1"
                       >
                         Continuar
                       </button>
                       <button
                         onClick={stop}
-                        className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+                        className="bg-black-gold-700 hover:bg-black-gold-900 text-white font-bold py-1 px-2 rounded text-sm"
                       >
-                        <Lucide.Stop size={20} className="inline-block mr-2" />
+                        <Lucide.Stop size={16} className="inline-block mr-1" />
                         Parar
                       </button>
                     </>
                   )}
                   <button
                     onClick={saveAsPDF}
-                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                    className="bg-black-gold-700 hover:bg-black-gold-900 text-white font-bold py-1 px-2 rounded text-sm"
                   >
                     Salvar como PDF
+                  </button>
+                  <button
+                    onClick={handleSave}
+                    className="bg-black-gold-700 hover:bg-black-gold-900 text-white font-bold py-1 px-2 rounded text-sm"
+                  >
+                    Salvar Texto
                   </button>
                 </div>
               </div>
